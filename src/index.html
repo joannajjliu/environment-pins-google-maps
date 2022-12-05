@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>G-maps Environment pin points</title>
+    <!-- <link rel="stylesheet" type="text/css" href="./style.css" /> -->
+    <!-- <script type="module" src="./index.ts"></script> -->
+  </head>
+  <body>
+    <header class="header">
+      <h1>Pin Environment Points Of Interest</h1>
+    </header>
+
+    <!-- <section class="example">
+      <div class="example-style">
+        <p class="from-css">Hi, I'm from CSS</p>
+        <p class="from-sass">Hi, I'm from SASS</p>
+        <p class="from-scss">Hi, I'm from SCSS</p>
+      </div>
+      <div class="example-lazy-load">
+        <button id="lazy-load">Lazy load example</button>
+        <p>Hint: See Devtools network tabs and console tabs</p>
+      </div>
+    </section> -->
+
+    <div class="container">
+      <button data-modal="modal-one" id="open-modal-button">
+        Submit Event or Location of Interest
+      </button>
+    </div>
+
+    <div class="modal" id="modal-one">
+      <div class="modal-bg modal-exit"></div>
+      <div class="modal-container">
+        <section>
+          <h1>Submit event or location of interest</h1>
+          <button class="modal-close modal-exit" aria-label="Close modal">
+            X
+          </button>
+
+          <form>
+            <label for="address-autocomplete">Address</label>
+            <input
+              id="address-autocomplete"
+              type="text"
+              name="address-autocomplete"
+            />
+
+            <label for="event-name">Event Name</label>
+            <input id="event-name" type="text" name="event-name" />
+
+            <label for="contact-email">Contact Email</label>
+            <input id="contact-email" type="email" name="contact-email" />
+
+            <label for="event-date">Event Date</label>
+            <input
+              type="date"
+              id="event-date"
+              name="event-date"
+              value="2023-01-22"
+              min="2022-12-01"
+              max="2024-12-31"
+            />
+            <!-- <input type="submit" value="Submit" /> -->
+          </form>
+        </section>
+      </div>
+    </div>
+
+    <section>
+      <h2>Environment points of interest</h2>
+      <!--The div element for the map -->
+      <div id="basic-map"></div>
+      <!-- <div id="cluster-map"></div> -->
+      <!-- <div id="json-map"></div> -->
+
+      <!-- 
+         The `defer` attribute causes the callback to execute after the full HTML
+         document has been parsed. For non-blocking uses, avoiding race conditions,
+         and consistent behavior across browsers, consider loading using Promises
+         with https://www.npmjs.com/package/@googlemaps/js-api-loader.
+        -->
+      <script src="<%= htmlWebpackPlugin.options.apiUrl %>" defer></script>
+    </section>
+
+    <section>
+      <h3>Point of Interest</h3>
+      <div id="selected-address"></div>
+    </section>
+  </body>
+</html>
